@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Web WebBacklog="24" />
+  <Dns Server="8.8.8.8" Timeout="500" AnswerTtl="3600" UdpListeners="10" TcpListeners="10" CatchAll="false" />
+  <Proxy Port="8080" />
+  <X509 AuthorityName="ADVinterceptor Root Certification Authority" RootValidity="1460" Validity="730" />
+  <Interceptions>
+    <Interception Name="www.google.com" Port="80" Protocol="Http" />
+  </Interceptions>
+</Configuration>

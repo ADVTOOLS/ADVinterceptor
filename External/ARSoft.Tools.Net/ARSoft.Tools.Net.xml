@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ARSoft.Tools.Net</name>
+    </assembly>
+    <members>
+        <member name="P:ARSoft.Tools.Net.Dns.OptRecord.UpdPayloadSize">
+            <summary>
+            Gets or set the sender's UDP payload size
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.OptRecord.ExtendedReturnCode">
+            <summary>
+            Gets or sets the high bits of return code (EXTENDED-RCODE)
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.OptRecord.Version">
+            <summary>
+            Gets or set the EDNS version
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.OptRecord.IsDnsSecOk">
+            <summary>
+            Gets or sets the DNSSEC OK (DO) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.OptRecord.Options">
+            <summary>
+            Gets or set additional EDNS options
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.AdditionalRecords">
+            <summary>
+            Gets or sets the entries in the additional records section
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.TransactionID">
+            <summary>
+            Gets or sets the transaction identifier (ID) of the message
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.IsQuery">
+            <summary>
+            Gets or sets the query (QR) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.OperationCode">
+            <summary>
+            Gets or sets the Operation Code (OPCODE)
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.ReturnCode">
+            <summary>
+            Gets or sets the return code (RCODE)
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.IsEDnsEnabled">
+            <summary>
+            Enables or disables EDNS
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.EDnsOptions">
+            <summary>
+            Gets or set the OptRecord for the EDNS options
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.IsDnsSecOk">
+            <summary>
+            Gets or sets the DNSSEC OK (DO) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessageBase.TSigOptions">
+            <summary>
+            Gets or set the TSigRecord for the tsig signed messages
+            </summary>
+        </member>
+        <member name="T:ARSoft.Tools.Net.Dns.DnsClient">
+            <summary>
+            Provides a client for querying dns records
+            </summary>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Provides a new instance with custom dns server and query timeout
+            </summary>
+            <param name="dnsServers">The IPAddress of the dns server to use</param>
+            <param name="queryTimeout">Query timeout in milliseconds</param>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.#ctor(System.Collections.Generic.List{System.Net.IPAddress},System.Int32)">
+            <summary>
+            Provides a new instance with custom dns servers and query timeout
+            </summary>
+            <param name="dnsServers">The IPAddresses of the dns servers to use</param>
+            <param name="queryTimeout">Query timeout in milliseconds</param>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.Resolve(System.String)">
+            <summary>
+            Queries a dns server for address records.
+            </summary>
+            <param name="name">Domain, that should be queried</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.Resolve(System.String,ARSoft.Tools.Net.Dns.RecordType)">
+            <summary>
+            Queries a dns server for specified records.
+            </summary>
+            <param name="name">Domain, that should be queried</param>
+            <param name="recordType">Recordtype the should be queried</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.Resolve(System.String,ARSoft.Tools.Net.Dns.RecordType,ARSoft.Tools.Net.Dns.RecordClass)">
+            <summary>
+            Queries a dns server for specified records.
+            </summary>
+            <param name="name">Domain, that should be queried</param>
+            <param name="recordType">Type the should be queried</param>
+            <param name="recordClass">Class the should be queried</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.BeginResolve(System.String,System.AsyncCallback,System.Object)">
+            <summary>
+            Queries a dns server for specified records asynchronously.
+            </summary>
+            <param name="name">Domain, that should be queried</param>
+            <param name="requestCallback">An <see cref="T:System.AsyncCallback"/> delegate that references the method to invoked then the operation is complete.</param>
+            <param name="state">A user-defined object that contains information about the receive operation. This object is passed to the <paramref name="requestCallback"/> delegate when the operation is complete.</param>
+            <returns>An <see cref="T:System.IAsyncResult"/> IAsyncResult object that references the asynchronous receive.</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.BeginResolve(System.String,ARSoft.Tools.Net.Dns.RecordType,System.AsyncCallback,System.Object)">
+            <summary>
+            Queries a dns server for specified records asynchronously.
+            </summary>
+            <param name="name">Domain, that should be queried</param>
+            <param name="recordType">Type the should be queried</param>
+            <param name="requestCallback">An <see cref="T:System.AsyncCallback"/> delegate that references the method to invoked then the operation is complete.</param>
+            <param name="state">A user-defined object that contains information about the receive operation. This object is passed to the <paramref name="requestCallback"/> delegate when the operation is complete.</param>
+            <returns>An <see cref="T:System.IAsyncResult"/> IAsyncResult object that references the asynchronous receive.</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.BeginResolve(System.String,ARSoft.Tools.Net.Dns.RecordType,ARSoft.Tools.Net.Dns.RecordClass,System.AsyncCallback,System.Object)">
+            <summary>
+            Queries a dns server for specified records asynchronously.
+            </summary>
+            <param name="name">Domain, that should be queried</param>
+            <param name="recordType">Type the should be queried</param>
+            <param name="recordClass">Class the should be queried</param>
+            <param name="requestCallback">An <see cref="T:System.AsyncCallback"/> delegate that references the method to invoked then the operation is complete.</param>
+            <param name="state">A user-defined object that contains information about the receive operation. This object is passed to the <paramref name="requestCallback"/> delegate when the operation is complete.</param>
+            <returns>An <see cref="T:System.IAsyncResult"/> IAsyncResult object that references the asynchronous receive.</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.EndResolve(System.IAsyncResult)">
+            <summary>
+            Ends a pending asynchronous operation.
+            </summary>
+            <param name="ar">An <see cref="T:System.IAsyncResult"/> object returned by a call to <see cref="M:ARSoft.Tools.Net.Dns.DnsClient.BeginResolve(System.String,System.AsyncCallback,System.Object)"/>.</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.SendMessage(ARSoft.Tools.Net.Dns.DnsMessage)">
+            <summary>
+            Send a custom message to the dns server and returns the answer.
+            </summary>
+            <param name="message">Message, that should be send to the dns server</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.SendUpdate(ARSoft.Tools.Net.Dns.DynamicUpdate.DnsUpdateMessage)">
+            <summary>
+            Send an dynamic update to the dns server and returns the answer.
+            </summary>
+            <param name="message">Update, that should be send to the dns server</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.BeginSendMessage(ARSoft.Tools.Net.Dns.DnsMessage,System.AsyncCallback,System.Object)">
+            <summary>
+            Send a custom message to the dns server and returns the answer asynchronously.
+            </summary>
+            <param name="message">Message, that should be send to the dns server</param>
+            <param name="requestCallback">An <see cref="T:System.AsyncCallback"/> delegate that references the method to invoked then the operation is complete.</param>
+            <param name="state">A user-defined object that contains information about the receive operation. This object is passed to the <paramref name="requestCallback"/> delegate when the operation is complete.</param>
+            <returns>An <see cref="T:System.IAsyncResult"/> IAsyncResult object that references the asynchronous receive.</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsClient.EndSendMessage(System.IAsyncResult)">
+            <summary>
+            Ends a pending asynchronous operation.
+            </summary>
+            <param name="ar">An <see cref="T:System.IAsyncResult"/> object returned by a call to <see cref="M:ARSoft.Tools.Net.Dns.DnsClient.BeginSendMessage(ARSoft.Tools.Net.Dns.DnsMessage,System.AsyncCallback,System.Object)"/>.</param>
+            <returns>The complete response of the dns server</returns>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsClient.Default">
+            <summary>
+            Returns a default instance of the DnsClient, which uses the configured dns servers of the executing computer and a query timeout of 10 seconds.
+            </summary>
+        </member>
+        <member name="M:ARSoft.Tools.Net.IPAddressExtension.Reverse(System.Net.IPAddress)">
+            <summary>
+            Reverses the order of the bytes of an IPAddress
+            </summary>
+            <param name="ipAddress">Instance of the IPAddress, that should be reversed</param>
+            <returns>New instance of IPAddress with reversed address</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.IPAddressExtension.GetNetworkAddress(System.Net.IPAddress,System.Net.IPAddress)">
+            <summary>
+            Gets the network address for a specified IPAddress and netmask
+            </summary>
+            <param name="ipAddress">IPAddress, for that the network address should be returned</param>
+            <param name="netmask">Netmask, that should be used</param>
+            <returns>New instance of IPAddress with the network address assigend</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.IPAddressExtension.GetNetworkAddress(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Gets the network address for a specified IPAddress and netmask
+            </summary>
+            <param name="ipAddress">IPAddress, for that the network address should be returned</param>
+            <param name="netmask">Netmask in CIDR format</param>
+            <returns>New instance of IPAddress with the network address assigend</returns>
+        </member>
+        <member name="M:ARSoft.Tools.Net.IPAddressExtension.GetReverseLookupAddress(System.Net.IPAddress)">
+            <summary>
+            Returns the reverse lookup address of an IPAddress
+            </summary>
+            <param name="ipAddress">Instance of the IPAddress, that should be used</param>
+            <returns>A string with the reverse lookup address</returns>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DynamicUpdate.DnsUpdateMessage.ZoneName">
+            <summary>
+            Gets or sets the zone name
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DynamicUpdate.DnsUpdateMessage.Prequisites">
+            <summary>
+            Gets or sets the entries in the prerequisites section
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DynamicUpdate.DnsUpdateMessage.Updates">
+            <summary>
+            Gets or sets the entries in the update section
+            </summary>
+        </member>
+        <member name="T:ARSoft.Tools.Net.Dns.DnsServer">
+            <summary>
+            Provides a base dns server interface
+            </summary>
+        </member>
+        <member name="F:ARSoft.Tools.Net.Dns.DnsServer.TsigKeySelector">
+            <summary>
+            Method that will be called to get the keydata for processing a tsig signed message
+            </summary>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsServer.#ctor(System.Int32,System.Int32,ARSoft.Tools.Net.Dns.DnsServer.ProcessQuery)">
+            <summary>
+            Creates a new dns server instance which will listen on all available interfaces
+            </summary>
+            <param name="udpListenerCount">The count of threads listings on udp, 0 to deactivate udp</param>
+            <param name="tcpListenerCount">The count of threads listings on tcp, 0 to deactivate tcp</param>
+            <param name="processQuery">Method, which process the queries and returns the response</param>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsServer.#ctor(System.Net.IPAddress,System.Int32,System.Int32,ARSoft.Tools.Net.Dns.DnsServer.ProcessQuery)">
+            <summary>
+            Creates a new dns server instance
+            </summary>
+            <param name="bindAddress">The address, on which should be listend</param>
+            <param name="udpListenerCount">The count of threads listings on udp, 0 to deactivate udp</param>
+            <param name="tcpListenerCount">The count of threads listings on tcp, 0 to deactivate tcp</param>
+            <param name="processQuery">Method, which process the queries and returns the response</param>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsServer.Start">
+            <summary>
+            Starts the server
+            </summary>
+        </member>
+        <member name="M:ARSoft.Tools.Net.Dns.DnsServer.Stop">
+            <summary>
+            Stops the server
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsServer.Timeout">
+            <summary>
+            Gets or sets the timeout for sending and receiving data
+            </summary>
+        </member>
+        <member name="E:ARSoft.Tools.Net.Dns.DnsServer.ExceptionThrown">
+            <summary>
+            This event is fired on exceptions of the listeners. You can use it for custom logging.
+            </summary>
+        </member>
+        <member name="E:ARSoft.Tools.Net.Dns.DnsServer.InvalidSignedMessageReceived">
+            <summary>
+            This event is fired whenever a message is received, that is not correct signed
+            </summary>
+        </member>
+        <member name="T:ARSoft.Tools.Net.Dns.DnsServer.ProcessQuery">
+            <summary>
+            Represents the method, that will be called to get the response for a specific dns query
+            </summary>
+            <param name="query">The query, for that a response should be returned</param>
+            <param name="clientAddress">The ip address from which the queries comes</param>
+            <param name="protocolType">The protocol which was used for the query</param>
+            <returns>A DnsMessage with the response to the query</returns>
+        </member>
+        <member name="T:ARSoft.Tools.Net.Dns.DnsServer.SelectTsigKey">
+            <summary>
+            Represents the method, that will be called to get the keydata for processing a tsig signed message
+            </summary>
+            <param name="algorithm">The algorithm which is used in the message</param>
+            <param name="keyName">The keyname which is used in the message</param>
+            <returns>Binary representation of the key</returns>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.IsAuthoritiveAnswer">
+            <summary>
+            Gets or sets the autoritive answer (AA) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.IsTruncated">
+            <summary>
+            Gets or sets the truncated (TC) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.IsRecursionDesired">
+            <summary>
+            Gets or sets the recursion desired (RD) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.IsRecursionAllowed">
+            <summary>
+            Gets or sets the recursion allowed (RA) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.IsAuthenticData">
+            <summary>
+            Gets or sets the authentic data (AD) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.IsCheckingDisabled">
+            <summary>
+            Gets or sets the checking disabled (CD) flag
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.Questions">
+            <summary>
+            Gets or sets the entries in the question section
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.AnswerRecords">
+            <summary>
+            Gets or sets the entries in the answer records section
+            </summary>
+        </member>
+        <member name="P:ARSoft.Tools.Net.Dns.DnsMessage.AuthorityRecords">
+            <summary>
+            Gets or sets the entries in the authority records section
+            </summary>
+        </member>
+    </members>
+</doc>
